@@ -13,6 +13,7 @@ let total = 0;
 $colorChildren.prop('disabled', true)
 $payFormat.children().eq(1).attr('selected','selected')
 
+
 // Focus input 'Name' on load
 $(function() {
     $($nameField).focus();
@@ -33,21 +34,28 @@ $($jobRole).change(function(e) {
 $($shirtDesign).change(function(e) {
     $colorChildren.prop('disabled', false)
     for (let i = 0; i < $colorChildren.length; i++) {
-
-     if (e.target.value === 'js puns' && i > 3) {
-        $colorChildren.eq(i).hide()
-        console.log(e.target.value)
+       const $dataTheme = $colorChildren.eq(i).attr('data-theme')
+       console.log($dataTheme)
+       console.log(e.target.value)
+     if (e.target.value === $dataTheme) {
+        $colorChildren.eq(i).show()
+        //$colorChildren.children().eq(i).attr('selected','selected')
+//$colorChildren.eq(!i).attr('selected',true)
+       // console.log(e.target.value)
     }
-    else if(e.target.value === 'heart js' && i > 0 && i <= 3){
-        $colorChildren.eq(i).hide()
-        console.log(e.target.value)
-    }  
-     else if (i === 0){
-         for (let i = 1; i < $colorChildren.length; i++) {
-            $colorChildren.eq(i).show()
-             }
+    else {
+         $colorChildren.eq(i).hide()
+         $colorChildren.children().eq(i).attr('selected','selected')
+        //  $colorChildren.children().eq(i).attr('selected',false)
+    //     //$colorChildren.eq(!i).attr('selected',true)
+    //     //console.log(e.target.value)
+     }  
+    //  else if (i === 0){
+    //      for (let i = 1; i < $colorChildren.length; i++) {
+    //         $colorChildren.eq(i).show()
+    //          }
         
-        }   
+    //     }   
     }
     
   });
