@@ -39,25 +39,13 @@ $($shirtDesign).change(function(e) {
        console.log(e.target.value)
      if (e.target.value === $dataTheme) {
         $colorChildren.eq(i).show()
-        //$colorChildren.children().eq(i).attr('selected','selected')
-//$colorChildren.eq(!i).attr('selected',true)
-       // console.log(e.target.value)
+        $colorChildren.eq(i).attr('selected','selected')
     }
     else {
          $colorChildren.eq(i).hide()
-         $colorChildren.children().eq(i).attr('selected','selected')
-        //  $colorChildren.children().eq(i).attr('selected',false)
-    //     //$colorChildren.eq(!i).attr('selected',true)
-    //     //console.log(e.target.value)
+         $colorChildren.eq(i).removeAttr('selected','selected')
      }  
-    //  else if (i === 0){
-    //      for (let i = 1; i < $colorChildren.length; i++) {
-    //         $colorChildren.eq(i).show()
-    //          }
-        
-    //     }   
     }
-    
   });
 
 // Activities selected function
