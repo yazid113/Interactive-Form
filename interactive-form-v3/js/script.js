@@ -15,7 +15,7 @@ const $creditCard = $('#credit-card')
 const $cardNumber = $('#cc-num')
 const $zipCode = $("#zip")
 const $cvv = $('#cvv')
-const $checkbox = $('input[type="checkbox"]')
+const checkbox = document.querySelectorAll('input[type="checkbox"]')
 //Initalizatiom variables
 let total = 0;
 //The color form is disbled until the design is selected
@@ -160,12 +160,11 @@ $($form).submit(function (e) {
     }
 });
 //Accessibilty-focus or blur the activities section on selection
-for (let i = 0; i < $checkbox.length; i++) {
-    $checkbox.eq(i).focus(function(){
-     $checkbox.parent().addClass('focus');  
+for (let i = 0; i < checkbox.length; i++) {
+    checkbox[i].addEventListener('focus',function(){
+        checkbox[i].parentNode.classList.add('focus')
     })
-    $checkbox.eq(i).blur(function(){
-        $checkbox.parent().removeClass('focus');  
-       })
-    
+    checkbox[i].addEventListener('blur',function(){
+        checkbox[i].parentNode.classList.remove('focus')
+    })
 }
